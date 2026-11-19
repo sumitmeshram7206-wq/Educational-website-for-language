@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NimbusWorld – Personality &amp; Careers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a2e; }
+
+    /* breadcrumb */
+    .pc-breadcrumb {
+      padding: 10px 48px;
+      font-size: 11px;
+      color: #8ca0b8;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      font-family: 'Inter', sans-serif;
+    }
+    .pc-breadcrumb a { color: #8ca0b8; text-decoration: none; }
+    .pc-breadcrumb span { margin: 0 5px; }
+
+    /* hero */
+    .pc-hero {
+      background: #0d1b2a;
+      padding: 52px 48px 48px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 40px;
+      align-items: start;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .pc-hero-left h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+
+    .pc-hero-left p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 400px;
+    }
+
+    /* this is grwoth index card */
+    .pc-index-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 20px 22px;
+    }
+
+    .pc-index-card .index-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 14px;
+    }
+
+    .pc-index-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .pc-index-item:last-child { border-bottom: none; }
+
+    .pc-index-num {
+      font-size: 11px;
+      color: #c9a84c;
+      font-weight: 700;
+      min-width: 20px;
+      margin-top: 1px;
+    }
+
+    .pc-index-info h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* academy cha section */
+    .pc-academy {
+      padding: 52px 48px 0;
+      background: #0d1b2a;
+    }
+
+    .pc-academy .pc-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .pc-academy h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 36px;
+    }
+
+    /* Programme che rows —> 3 rows */
+    .pc-prog-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 36px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      align-items: start;
+    }
+
+    .pc-prog-left .pc-code {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .pc-prog-left h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .pc-prog-left .pc-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pc-prog-right .pc-for-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .pc-prog-right ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
+    }
+
+    .pc-prog-right ul li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      padding: 2px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      line-height: 1.5;
+    }
+
+    .pc-prog-right ul li::before {
+      content: '·';
+      color: #c9a84c;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pc-ask-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #c9a84c;
+      font-family: 'Inter', sans-serif;
+      display: block;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 12px;
+    }
+    .pc-ask-link:hover { opacity: 0.7; }
+
+    /* industry che section */
+    .pc-industry {
+      padding: 52px 48px 0;
+      background: #eaf0f8;
+    }
+
+    .pc-industry .pc-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .pc-industry h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 8px;
+    }
+
+    .pc-industry .pc-note {
+      font-size: 12px;
+      color: #8ca0b8;
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 32px;
+    }
+
+    .pc-industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border: 1px solid #d8e4f0;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #d8e4f0;
+    }
+
+    .pc-industry-card {
+      background: #fff;
+      padding: 24px 22px;
+    }
+
+    .pc-industry-card .ic-code {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .pc-industry-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .pc-industry-card p {
+      font-size: 12.5px;
+      color: #3d4a5c;
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .pc-industry-card .ic-roles-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .pc-industry-card .ic-roles {
+      font-size: 12px;
+      color: #3d4a5c;
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    .pc-industry-note {
+      font-size: 11.5px;
+      color: #8ca0b8;
+      font-weight: 300;
+      font-style: italic;
+      font-family: 'Inter', sans-serif;
+      margin-top: 14px;
+      padding-bottom: 8px;
+    }
+
+    /* travel sector section  */
+    .pc-travel {
+      background: #0d1b2a;
+      padding: 52px 48px;
+      margin-top: 48px;
+    }
+
+    .pc-travel .pc-label-light {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .pc-travel h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 36px;
+    }
+
+    .pc-travel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .pc-travel-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .pc-travel-item p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
+    }
+
+    .pc-travel-disclaimer {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      max-width: 680px;
+    }
+
+    /* cta  */
+    .pc-cta {
+      background: #eaf0f8;
+      padding: 44px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      border-top: 1px solid #d8e4f0;
+      border-bottom: 1px solid #d8e4f0;
+    }
+
+    .pc-cta h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 8px;
+    }
+
+    .pc-cta p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pc-cta .cta-note {
+      font-size: 11.5px;
+      color: #8ca0b8;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    .pc-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a4c8a;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .pc-cta-btn:hover { background: #163f75; }
+
+    /* this is footer */
+    .pc-footer {
+      background: #fbfae6;
+      padding: 44px 48px 20px;
+    }
+
+    .pc-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .pc-footer-brand .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .pc-footer-brand .brand-name {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+    .pc-footer-brand .brand-name .p1 { color: #fff; }
+    .pc-footer-brand .brand-name .p2 { color: #c9a84c; }
+
+    .pc-footer-brand .tagline {
+      font-size: 12px;
+      color: #c9a84c;
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+      margin-bottom: 10px;
+    }
+
+    .pc-footer-brand p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      max-width: 220px;
+    }
+
+    .pc-footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 14px;
+    }
+
+    .pc-footer-col p {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .pc-footer-col p strong {
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .pc-footer-col a {
+      display: inline-block;
+      font-size: 12.5px;
+      color: #c9a84c;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+
+    .pc-footer-col a.muted {
+      color: rgba(255,255,255,0.3);
+      font-size: 11px;
+    }
+
+    .pc-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pc-footer-bottom p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      font-family: 'Inter', sans-serif;
+    }
+
+    @media (max-width: 900px) {
+      .pc-hero, .pc-academy, .pc-industry, .pc-travel, .pc-cta, .pc-footer { padding-left: 24px; padding-right: 24px; }
+      .pc-hero { grid-template-columns: 1fr; }
+      .pc-index-card { display: none; }
+      .pc-prog-row { grid-template-columns: 1fr; gap: 16px; }
+      .pc-industry-grid { grid-template-columns: 1fr; }
+      .pc-travel-grid { grid-template-columns: 1fr; gap: 28px; }
+      .pc-cta { flex-direction: column; align-items: flex-start; }
+      .pc-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+        <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <path d="M11 25 L11 8 L23 25 L23 8" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+        <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+      </svg>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+        <div class="nav-logo-sub">Education Consultancy</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vfs-global-academy.html">VFS Global Academy</a></li>
+      <li><a href="languages.html">Languages</a></li>
+      <li><a href="personality-career.html" class="active">Personality &amp; careers</a></li>
+      <li><a href="learning-parents.html">Learning &amp; parents</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a consulting →</a>
+    </div>
+  </nav>
+
+  <!-- breadcrumbs -->
+  <div class="pc-breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span>Personality &amp; Careers</span>
+  </div>
+
+  <!-- hero section -->
+  <section class="pc-hero">
+    <div class="pc-hero-left">
+      <h1>Confidence that grows<br>with your ambition.</h1>
+      <p>Develop your voice, professional presence and career-ready<br>skills — one purposeful step at a time.</p>
+    </div>
+
+    <!-- Growth index card -->
+    <div class="pc-index-card">
+      <p class="index-label">Your Growth Path</p>
+      <div class="pc-index-item">
+        <div class="pc-index-num">01</div>
+        <div class="pc-index-info"><h4>Confidence</h4></div>
+      </div>
+      <div class="pc-index-item">
+        <div class="pc-index-num">02</div>
+        <div class="pc-index-info"><h4>Professional readiness</h4></div>
+      </div>
+      <div class="pc-index-item">
+        <div class="pc-index-num">03</div>
+        <div class="pc-index-info"><h4>Leadership &amp; impact</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- academy cha section -->
+  <section class="pc-academy" style="padding-bottom: 48px;">
+    <p class="pc-label">The NimbusWorld Academy</p>
+    <h2>Show up as your most capable self.</h2>
+
+    <!-- NWP 101 -->
+    <div class="pc-prog-row">
+      <div class="pc-prog-left">
+        <p class="pc-code">NWP-101</p>
+        <h3>Confident You</h3>
+        <p class="pc-sub">Self-awareness &amp; expression</p>
+      </div>
+      <div class="pc-prog-right">
+        <p class="pc-for-label">For school leavers and first-year college students</p>
+        <ul>
+          <li>Overcome hesitation and fear of speaking</li>
+          <li>Body language, posture and eye contact</li>
+          <li>Small-group dialogue and personal goal setting</li>
+        </ul>
+        <a href="contact.html" class="pc-ask-link">Ask about NWP-101 →</a>
+      </div>
+    </div>
+
+    <!-- NWP-201 -->
+    <div class="pc-prog-row">
+      <div class="pc-prog-left">
+        <p class="pc-code">NWP-201</p>
+        <h3>Professional You</h3>
+        <p class="pc-sub">Career-readiness &amp; etiquette</p>
+      </div>
+      <div class="pc-prog-right">
+        <p class="pc-for-label">For graduating students and job seekers</p>
+        <ul>
+          <li>Professional emails and telephone etiquette</li>
+          <li>Resume building, LinkedIn profiles and group discussion</li>
+          <li>Mock interviews with feedback</li>
+        </ul>
+        <a href="contact.html" class="pc-ask-link">Ask about NWP-201 →</a>
+      </div>
+    </div>
+
+    <!-- NWP-301 -->
+    <div class="pc-prog-row">
+      <div class="pc-prog-left">
+        <p class="pc-code">NWP-301</p>
+        <h3>Leadership &amp; Impact</h3>
+        <p class="pc-sub">L&amp;I · Executive presence &amp; collaboration</p>
+      </div>
+      <div class="pc-prog-right">
+        <p class="pc-for-label">For working professionals and aspiring team leads</p>
+        <ul>
+          <li>Team leadership, motivation and delegation</li>
+          <li>Conflict de-escalation and constructive problem solving</li>
+          <li>Executive presentations and cross-cultural intelligence</li>
+        </ul>
+        <a href="contact.html" class="pc-ask-link">Ask about NWP-301 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- industry section -->
+  <section class="pc-industry" style="padding-bottom: 48px;">
+    <p class="pc-label" style="margin-top:48px;">Explore Industry Directions</p>
+    <h2>Skills for people-centred careers.</h2>
+    <p class="pc-note">Proposed VFS association · Subject to partner and programme approval. Not a confirmed intake.</p>
+
+    <div class="pc-industry-grid">
+
+      <div class="pc-industry-card">
+        <p class="ic-code">VFS-101 · Proposed</p>
+        <h3>Hospitality Management</h3>
+        <p>Guest journey, reservation systems, fire evacuation recovery, F&amp;B operations and hotel PMS awareness.</p>
+        <p class="ic-roles-label">Illustrative fair roles</p>
+        <div class="ic-roles">
+          Front office associate<br>
+          Guest relations executive<br>
+          Hospitality trainee
+        </div>
+      </div>
+
+      <div class="pc-industry-card">
+        <p class="ic-code">VFS-102 · Proposed</p>
+        <h3>Travel &amp; Tourism Management</h3>
+        <p>Destination packaging, supplier contracting, itineraries and GDS awareness.</p>
+        <p class="ic-roles-label">Illustrative fair roles</p>
+        <div class="ic-roles">
+          Travel consultant<br>
+          Tour operations assistant<br>
+          Destination specialist
+        </div>
+      </div>
+
+      <div class="pc-industry-card">
+        <p class="ic-code">VFS-103 · Nearby</p>
+        <h3>Luxury Manag…</h3>
+        <p>Consultative clienteling, vi… and luxury lif…</p>
+        <p class="ic-roles-label">Illustrative fair</p>
+        <div class="ic-roles">
+          Brand exec or…<br>
+          Customer expe…<br>
+          Retail advisor
+        </div>
+      </div>
+
+    </div>
+    <p class="pc-industry-note">These illustrate possible directions, not guaranteed outcomes. Employer requirements and market conditions apply.</p>
+  </section>
+
+  <!-- travel section -->
+  <section class="pc-travel">
+    <p class="pc-label-light">Additional tracks · Availability to be confirmed</p>
+    <h2>Explore travel-sector learning.</h2>
+
+    <div class="pc-travel-grid">
+      <div class="pc-travel-item">
+        <h4>IATA-oriented travel</h4>
+        <p>Ticketing, reservation systems, fare calculation and airport operations. Confirm provider and credential status.</p>
+      </div>
+      <div class="pc-travel-item">
+        <h4>Non-IATA tourism</h4>
+        <p>Destination packaging, supplier coordination, itineraries and client consultation.</p>
+      </div>
+      <div class="pc-travel-item">
+        <h4>Visa-process awareness</h4>
+        <p>Public documentation concepts, checklists and compliance awareness. Not a visa approval service.</p>
+      </div>
+    </div>
+
+    <p class="pc-travel-disclaimer">Training is distinct from an officially issued IATA credential. Confirm current approvals, syllabus and certificate terms with the team.</p>
+  </section>
+
+  <!-- cta -->
+  <div class="pc-cta">
+    <div>
+      <h2>Your next chapter starts with a conversation.</h2>
+      <p>Tell us your goals. Our Pune team can help you explore a suitable learning path.</p>
+      <p class="cta-note">Batches, fees and availability are confirmed by the authorised team.</p>
+    </div>
+    <a href="contact.html" class="pc-cta-btn">Book a consulting →</a>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+            <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <path d="M11 25 L11 8 L23 25 L23 8" stroke="#0d1b2a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+            <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+            <div class="nav-logo-sub">Education Consultancy</div>
+          </div>
+        </div>
+        <div class="footer-tagline">Discover. Decide. Develop.</div>
+        <p>Education and study guidance,<br>from Pune to new possibilities.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pune Centre</h4>
+        <p>Pune Nimbus School, 11 Mhalaspur,<br>
+        Mhalaspur Road, No. 41 Nimbus Road,<br>
+        Nimbus Area Bank, Bhoserwali, Pune,<br>
+        Maharashtra 411027</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Let's Connect</h4>
+        <p><strong>+91 73789 70701</strong></p>
+        <p style="font-size:12px; color:var(--text-muted);">Mon–Sat · 09:00 AM–08:00 PM</p>
+        <a href="contact.html">WhatsApp consultations →</a>
+        <a href="mailto:hello@nimbusworld.in" style="color:var(--text-muted); font-size:12px;">Email address to be confirmed</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© NimbusWorld 2026 · NimbusWorld Consultancy Private Limited</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

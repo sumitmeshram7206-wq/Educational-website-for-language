@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NimbusWorld – Learning &amp; Parents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a2e; }
+
+    /*  this is breadcrumb */
+    .lp-breadcrumb {
+      padding: 10px 48px;
+      font-size: 11px;
+      color: #8ca0b8;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .lp-breadcrumb a { color: #8ca0b8; text-decoration: none; }
+    .lp-breadcrumb span { margin: 0 5px; }
+
+    /* hero  */
+    .lp-hero {
+      background: #0d1b2a;
+      padding: 52px 48px 48px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .lp-hero-left h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .lp-hero-left p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 420px;
+      margin-bottom: 24px;
+    }
+
+    .lp-hero-left .lp-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #c9a84c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .lp-hero-left .lp-link:hover { gap: 10px; }
+
+    .lp-hero-image {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 260px;
+      height: 260px;
+      justify-self: center;
+    }
+    .lp-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* progress section */
+    .lp-progress {
+      background: #fff;
+      padding: 56px 48px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .lp-progress .lp-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .lp-progress h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 40px;
+    }
+
+    .lp-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .lp-step .step-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #c9a84c;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .lp-step h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0d1b2a;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .lp-step p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* checklist */
+    .lp-checklist {
+      background: #0d1b2a;
+      padding: 56px 48px 40px;
+    }
+
+    .lp-checklist .lp-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .lp-checklist h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 32px;
+    }
+
+    .lp-checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 20px;
+    }
+
+    .lp-check-card {
+      background: #eaf0f8;
+      padding: 26px 28px;
+    }
+
+    .lp-check-card .cc-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c9a84c;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .lp-check-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0d1b2a;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .lp-check-card p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .lp-checklist-note {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* faq sevtion */
+    .lp-faq {
+      background: #fff;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      align-items: start;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .lp-faq-left .lp-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .lp-faq-left h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0d1b2a;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .lp-faq-left p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .lp-speak-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #c9a84c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .lp-speak-link:hover { opacity: 0.8; }
+
+    /* faq items */
+    .lp-faq-right .faq-item-lp {
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      padding: 18px 0;
+    }
+    .lp-faq-right .faq-item-lp:first-child { padding-top: 0; }
+
+    .faq-item-lp h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0d1b2a;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .faq-item-lp p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* cta bar */
+    .lp-cta {
+      background: #eaf0f8;
+      padding: 44px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      border-top: 1px solid #d8e4f0;
+      border-bottom: 1px solid #d8e4f0;
+    }
+
+    .lp-cta h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 8px;
+    }
+
+    .lp-cta p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .lp-cta .cta-note {
+      font-size: 11.5px;
+      color: #8ca0b8;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    .lp-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a4c8a;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .lp-cta-btn:hover { background: #163f75; }
+
+    /* this is footer*/
+    .lp-footer {
+      background: #fdfdec;
+      padding: 44px 48px 20px;
+    }
+
+    .lp-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .lp-footer-brand .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .lp-footer-brand .brand-name {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+    .lp-footer-brand .brand-name .p1 { color: #fff; }
+    .lp-footer-brand .brand-name .p2 { color: #c9a84c; }
+
+    .lp-footer-brand .tagline {
+      font-size: 12px;
+      color: #c9a84c;
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+      margin-bottom: 10px;
+    }
+
+    .lp-footer-brand p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 220px;
+    }
+
+    .lp-footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .lp-footer-col p {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .lp-footer-col p strong {
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .lp-footer-col a {
+      display: inline-block;
+      font-size: 12.5px;
+      color: #c9a84c;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+
+    .lp-footer-col a.muted {
+      color: rgba(255,255,255,0.3);
+      font-size: 11px;
+    }
+
+    .lp-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lp-footer-bottom p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .lp-hero, .lp-progress, .lp-checklist,
+      .lp-faq, .lp-cta, .lp-footer { padding-left: 24px; padding-right: 24px; }
+      .lp-hero { grid-template-columns: 1fr; }
+      .lp-hero-image { display: none; }
+      .lp-steps-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .lp-checklist-grid { grid-template-columns: 1fr; }
+      .lp-faq { grid-template-columns: 1fr; gap: 32px; }
+      .lp-cta { flex-direction: column; align-items: flex-start; }
+      .lp-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 580px) {
+      .lp-steps-grid { grid-template-columns: 1fr; }
+      .lp-footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+        <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <path d="M11 25 L11 8 L23 25 L23 8" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+        <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+      </svg>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+        <div class="nav-logo-sub">Education Consultancy</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vfs-global-academy.html">VFS Global Academy</a></li>
+      <li><a href="languages.html">Languages</a></li>
+      <li><a href="personality-career.html">Personality &amp; careers</a></li>
+      <li><a href="learning-parents.html" class="active">Learning &amp; parents</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a consulting →</a>
+    </div>
+  </nav>
+
+  <!-- breadcrumb -->
+  <div class="lp-breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span>Learning &amp; Parents</span>
+  </div>
+
+  <!-- hero -->
+  <section class="lp-hero">
+    <div class="lp-hero-left">
+      <h1>Choose with clarity.<br>Learn with purpose.</h1>
+      <p>Practical information for learners and families. Understand the course, the learning process and the questions to ask.</p>
+      <a href="#progress" class="lp-link">Explore our learning approach ↓</a>
+    </div>
+    <div class="lp-hero-image">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Students learning together" />
+    </div>
+  </section>
+
+  <!-- progress section -->
+  <section class="lp-progress" id="progress">
+    <p class="lp-label">How learning moves forward</p>
+    <h2>Progress is more than a promise.</h2>
+
+    <div class="lp-steps-grid">
+      <div class="lp-step">
+        <div class="step-num">01</div>
+        <h3>Entry</h3>
+        <p>Level check, learner goals and a personal baseline.</p>
+      </div>
+      <div class="lp-step">
+        <div class="step-num">02</div>
+        <h3>Practice</h3>
+        <p>Role plays, speaking, writing and simulated scenarios.</p>
+      </div>
+      <div class="lp-step">
+        <div class="step-num">03</div>
+        <h3>Feedback</h3>
+        <p>Constructive review and course-appropriate rubrics.</p>
+      </div>
+      <div class="lp-step">
+        <div class="step-num">04</div>
+        <h3>Milestones</h3>
+        <p>Progress snapshots and next-level recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- checklist -->
+  <section class="lp-checklist">
+    <p class="lp-label">The parent &amp; learner checklist</p>
+    <h2>The right questions. A more informed decision.</h2>
+
+    <div class="lp-checklist-grid">
+      <div class="lp-check-card">
+        <div class="cc-num">01</div>
+        <h4>Course fit &amp; starting level</h4>
+        <p>Who is the programme for? What prior skills are needed? Ask how an entry diagnostic can identify a suitable starting point.</p>
+      </div>
+      <div class="lp-check-card">
+        <div class="cc-num">02</div>
+        <h4>What the learner studies</h4>
+        <p>Review actual modules, recommended hours, practice activities, learning outcomes and the course assessment approach.</p>
+      </div>
+      <div class="lp-check-card">
+        <div class="cc-num">03</div>
+        <h4>Fees &amp; enrolment terms</h4>
+        <p>Ask for confirmed batches, fees, materials, attendance conditions and any applicable cancellation or refund terms before enrolling.</p>
+      </div>
+      <div class="lp-check-card">
+        <div class="cc-num">04</div>
+        <h4>Support &amp; realistic outcomes</h4>
+        <p>Discuss centre contact, age-appropriate learning and feedback. No automatic job, admission, exam score or visa guarantee.</p>
+      </div>
+    </div>
+    <p class="lp-checklist-note">Parent visibility should respect student age, consent and confidentiality.</p>
+  </section>
+
+  <!-- faq section -->
+  <section class="lp-faq">
+    <div class="lp-faq-left">
+      <p class="lp-label">Helpful answers</p>
+      <h2>Before you<br>take the<br>next step.</h2>
+      <p>Still have a question?<br>Our Pune team can explain<br>current course information.</p>
+      <a href="contact.html" class="lp-speak-link">Speak with an advisor →</a>
+    </div>
+
+    <div class="lp-faq-right">
+      <div class="faq-item-lp">
+        <h4>Which English level should I choose?</h4>
+        <p>Use a short speaking, listening, reading and writing diagnostic. You may enter at an appropriate level rather than starting with Foundation.</p>
+      </div>
+      <div class="faq-item-lp">
+        <h4>Who issues language examination certificates?</h4>
+        <p>JLPT, Goethe and HSK examinations are external credentials. NimbusWorld training is separate; confirm registration and certificate requirements.</p>
+      </div>
+      <div class="faq-item-lp">
+        <h4>What are the fees and class timings?</h4>
+        <p>Ask the authorised team for approved fees, batches, teaching format and enrolment terms. No unconfirmed schedule or price is published here.</p>
+      </div>
+      <div class="faq-item-lp">
+        <h4>Are the industry programmes currently available?</h4>
+        <p>Hospitality, travel and luxury retail pathways are proposed and subject to partner approval. Ask the team about their current status before enrolling.</p>
+      </div>
+      <div class="faq-item-lp">
+        <h4>Are jobs, admissions or visas guaranteed?</h4>
+        <p>No. Courses build relevant skills; decisions by employers, institutions, exam bodies and government authorities remain independent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- cta -->
+  <div class="lp-cta">
+    <div>
+      <h2>Your next chapter starts with a conversation.</h2>
+      <p>Tell us your goals. Our Pune team can help you explore a suitable learning path.</p>
+      <p class="cta-note">Batches, fees and availability are confirmed by the authorised team.</p>
+    </div>
+    <a href="contact.html" class="lp-cta-btn">Book a consulting →</a>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+            <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <path d="M11 25 L11 8 L23 25 L23 8" stroke="#0d1b2a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+            <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+            <div class="nav-logo-sub">Education Consultancy</div>
+          </div>
+        </div>
+        <div class="footer-tagline">Discover. Decide. Develop.</div>
+        <p>Education and study guidance,<br>from Pune to new possibilities.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pune Centre</h4>
+        <p>Pune Nimbus School, 11 Mhalaspur,<br>
+        Mhalaspur Road, No. 41 Nimbus Road,<br>
+        Nimbus Area Bank, Bhoserwali, Pune,<br>
+        Maharashtra 411027</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Let's Connect</h4>
+        <p><strong>+91 73789 70701</strong></p>
+        <p style="font-size:12px; color:var(--text-muted);">Mon–Sat · 09:00 AM–08:00 PM</p>
+        <a href="contact.html">WhatsApp consultations →</a>
+        <a href="mailto:hello@nimbusworld.in" style="color:var(--text-muted); font-size:12px;">Email address to be confirmed</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© NimbusWorld 2026 · NimbusWorld Consultancy Private Limited</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

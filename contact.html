@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NimbusWorld – Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a2e; }
+
+    /* this is breadcrumb */
+    .ct-breadcrumb {
+      padding: 10px 48px;
+      font-size: 11px;
+      color: #8ca0b8;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .ct-breadcrumb a { color: #8ca0b8; text-decoration: none; }
+    .ct-breadcrumb span { margin: 0 5px; color: #8ca0b8; }
+    .ct-breadcrumb .current { color: #3d4a5c; }
+
+    /* hero */
+    .ct-hero {
+      background: #0d1b2a;
+      padding: 52px 48px 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .ct-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    .ct-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 440px;
+    }
+
+    /* contact body */
+    .ct-body {
+      background: #fff;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+      align-items: start;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    /* Left column — light blue */
+    .ct-left {
+      background: #eaf0f8;
+      padding: 52px 36px;
+      border-right: 1px solid #d8e4f0;
+      min-height: 100%;
+    }
+
+    /* Left column */
+    .ct-left .ct-col-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .ct-left h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #0d1b2a;
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+
+    .ct-contact-block {
+      margin-bottom: 28px;
+    }
+
+    .ct-contact-block .block-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .ct-contact-block .phone-num {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0d1b2a;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 12px;
+    }
+
+    .ct-whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0d1b2a;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .ct-whatsapp-btn:hover { background: #1a3050; }
+
+    .ct-contact-block .hours-text {
+      font-size: 14px;
+      font-weight: 400;
+      color: #0d1b2a;
+      line-height: 1.6;
+    }
+
+    .ct-contact-block .email-note {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* Right column — form */
+    .ct-form-wrap {
+      background: #fff;
+      padding: 52px 44px;
+    }
+
+    .ct-form-wrap h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 6px;
+    }
+
+    .ct-form-wrap .form-desc {
+      font-size: 13px;
+      color: #8ca0b8;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .ct-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .ct-form .form-group {
+      margin-bottom: 14px;
+    }
+
+    .ct-form label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #3d4a5c;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .ct-form label .req { color: #c9a84c; }
+
+    /* Input fields —> light blue background */
+    .ct-form input,
+    .ct-form select,
+    .ct-form textarea {
+      width: 100%;
+      background: #eaf0f8;
+      border: 1px solid #d8e4f0;
+      border-radius: 3px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #1a1a2e;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .ct-form input::placeholder,
+    .ct-form textarea::placeholder {
+      color: #9ab0c4;
+      font-weight: 300;
+    }
+
+    .ct-form input:focus,
+    .ct-form select:focus,
+    .ct-form textarea:focus {
+      border-color: #0d1b2a;
+      background: #f0f6fc;
+    }
+
+    .ct-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .ct-form select {
+      color: #3d4a5c;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238ca0b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-color: #eaf0f8;
+      padding-right: 32px;
+    }
+
+    .ct-form .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .ct-form .consent-row input[type="checkbox"] {
+      width: auto;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      accent-color: #0d1b2a;
+    }
+
+    .ct-form .consent-row label {
+      font-size: 12px;
+      color: #8ca0b8;
+      font-weight: 300;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    .ct-submit-btn {
+      width: 100%;
+      background: #1a4c8a;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 13px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .ct-submit-btn:hover { background: #163f75; }
+
+    /* find us section */
+    .ct-find {
+      background: #fff;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: start;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .ct-find-left .ct-col-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .ct-find-left h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 20px;
+    }
+
+    .ct-find-left p {
+      font-size: 13.5px;
+      color: #3d4a5c;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 380px;
+    }
+
+    .ct-maps-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #c9a84c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ct-maps-link:hover { opacity: 0.8; }
+
+    /* Pune card */
+    .ct-pune-card {
+      background: #0d1b2a;
+      border-radius: 8px;
+      padding: 32px 28px;
+    }
+
+    .ct-pune-card .pune-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .ct-pune-card .pune-city {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .ct-pune-card .pune-region {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .ct-pune-card .pune-pin {
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* context sction */
+    .ct-context {
+      background: #eaf0f8;
+      padding: 52px 48px;
+      border-top: 1px solid #d8e4f0;
+      border-bottom: 1px solid #d8e4f0;
+    }
+
+    .ct-context .ct-col-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8ca0b8;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .ct-context h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 36px;
+    }
+
+    .ct-context-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .ct-context-item .ci-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .ct-context-item p {
+      font-size: 13px;
+      color: #3d4a5c;
+      font-weight:   300;
+      line-height:  1.65;
+    }
+
+    /* ── footer ── */
+    .ct-footer {
+      background: #fafbf6;
+      padding: 44px 48px 20px;
+    }
+
+    .ct-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .ct-footer-brand .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .ct-footer-brand .brand-name {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+    .ct-footer-brand .brand-name .p1 { color: #fff; }
+    .ct-footer-brand .brand-name .p2 { color: #c9a84c; }
+
+    .ct-footer-brand .tagline {
+      font-size: 12px;
+      color: #c9a84c;
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+      margin-bottom: 10px;
+    }
+
+    .ct-footer-brand p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 220px;
+    }
+
+    .ct-footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .ct-footer-col p {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .ct-footer-col p strong {
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .ct-footer-col a {
+      display: inline-block;
+      font-size: 12.5px;
+      color: #c9a84c;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+
+    .ct-footer-col a.muted {
+      color: rgba(255,255,255,0.3);
+      font-size: 11px;
+    }
+
+    .ct-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ct-footer-bottom p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* success message */
+    .success-msg {
+      display: none;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #c9a84c;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .ct-hero, .ct-body, .ct-find,
+      .ct-context, .ct-footer { padding-left: 24px; padding-right: 24px; }
+      .ct-breadcrumb { padding-left: 24px; }
+      .ct-body { grid-template-columns: 1fr; gap: 40px; }
+      .ct-find { grid-template-columns: 1fr; gap: 32px; }
+      .ct-context-grid { grid-template-columns: 1fr; gap: 28px; }
+      .ct-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .ct-form .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .ct-hero h1 { font-size: 32px; }
+      .ct-footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+        <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <path d="M11 25 L11 8 L23 25 L23 8" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+        <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+      </svg>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+        <div class="nav-logo-sub">Education Consultancy</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vfs-global-academy.html">VFS Global Academy</a></li>
+      <li><a href="languages.html">Languages</a></li>
+      <li><a href="personality-career.html">Personality &amp; careers</a></li>
+      <li><a href="learning-parents.html">Learning &amp; parents</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a consulting →</a>
+    </div>
+  </nav>
+
+  <!-- this is breadcrumb -->
+  <div class="ct-breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span class="current">Contact</span>
+  </div>
+
+  <!-- hero -->
+  <section class="ct-hero">
+    <h1>Let's talk about your next chapter.</h1>
+    <p>A question about courses, a suitable level or your next learning step?<br>Connect with our Pune team for current information.</p>
+  </section>
+
+  <!-- contact body -->
+  <section class="ct-body">
+
+    <!-- Left — contact info -->
+    <div class="ct-left">
+      <p class="ct-col-label">Connect your way</p>
+      <h2>Start a conversation.</h2>
+
+      <div class="ct-contact-block">
+        <p class="block-label">Phone &amp; WhatsApp</p>
+        <div class="phone-num">+91 73789 70701</div>
+        <a href="https://wa.me/917378970701" class="ct-whatsapp-btn" target="_blank" rel="noopener">
+          Chat on WhatsApp ↗
+        </a>
+      </div>
+
+      <div class="ct-contact-block">
+        <p class="block-label">Centre Hours</p>
+        <div class="hours-text">Monday to Saturday<br>09:30 AM – 06:30 PM</div>
+      </div>
+
+      <div class="ct-contact-block">
+        <p class="block-label">Email</p>
+        <p class="email-note">Email address to be confirmed.<br>Please call or WhatsApp the centre<br>for current course information.</p>
+      </div>
+    </div>
+
+    <!-- ct from wrap class-->
+    <div class="ct-form-wrap">
+      <h3>Book a counselling conversation</h3>
+      <p class="form-desc">Share your interests so the team can guide your next step.</p>
+
+      <form class="ct-form" id="ctForm" onsubmit="submitCtForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full name <span class="req">*</span></label>
+            <input type="text" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone number <span class="req">*</span></label>
+            <input type="tel" placeholder="+91 · Your phone number" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email (optional)</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Education stage (optional)</label>
+            <select>
+              <option value="" disabled selected>Select your stage</option>
+              <option>School student</option>
+              <option>College student</option>
+              <option>Graduate</option>
+              <option>Working professional</option>
+              <option>Parent enquiring</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Enquiry topic <span class="req">*</span></label>
+          <input type="text" placeholder="English / Languages / Personality / Other" required />
+        </div>
+
+        <div class="form-group">
+          <label>Preferred callback time (optional)</label>
+          <input type="text" placeholder="A convenient day and time" />
+        </div>
+
+        <div class="form-group">
+          <label>Your message (optional)</label>
+          <textarea placeholder="Tell us about your learning goals."></textarea>
+        </div>
+
+        <div class="consent-row">
+          <input type="checkbox" id="consent" required />
+          <label for="consent">I agree to be contacted about this enquiry. <span class="req">*</span></label>
+        </div>
+
+        <button type="submit" class="ct-submit-btn">Request counselling →</button>
+        <div class="success-msg" id="ctSuccess">
+          ✓ Request sent. Our Pune team will reach out to you shortly.
+        </div>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- find us class -->
+  <section class="ct-find">
+    <div class="ct-find-left">
+      <p class="ct-col-label">Come say hello</p>
+      <h2>Find us in Pune.</h2>
+      <p>Pune Global School, 9 A Bhagyanagar<br>
+      Bibwewadi-Kondhwa Road, opposite Khushboo Hotel,<br>
+      behind Axis Bank, Bibwewadi, Pune, Maharashtra 411037.</p>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" class="ct-maps-link">Open location in Google Maps ↗</a>
+    </div>
+
+    <!-- Pune card -->
+    <div class="ct-pune-card">
+      <p class="pune-label">Pune Centre</p>
+      <div class="pune-city">Pune.</div>
+      <p class="pune-region">Bibwewadi · Maharashtra</p>
+      <div class="pune-pin">411037</div>
+    </div>
+  </section>
+
+  <!-- context cha section -->
+  <section class="ct-context">
+    <p class="ct-col-label">Before you enquire</p>
+    <h2>A little context helps us guide you better.</h2>
+
+    <div class="ct-context-grid">
+      <div class="ct-context-item">
+        <p class="ci-label">01 / Your interest</p>
+        <p>Which course or language would you like to explore? Share your current level.</p>
+      </div>
+      <div class="ct-context-item">
+        <p class="ci-label">02 / Your goal</p>
+        <p>Tell us what you hope to learn — for everyday life, study or professional growth.</p>
+      </div>
+      <div class="ct-context-item">
+        <p class="ci-label">03 / Your questions</p>
+        <p>Ask about confirmed batches, fees, assessment and any certificate terms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer-->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+            <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <path d="M11 25 L11 8 L23 25 L23 8" stroke="#0d1b2a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+            <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+            <div class="nav-logo-sub">Education Consultancy</div>
+          </div>
+        </div>
+        <div class="footer-tagline">Discover. Decide. Develop.</div>
+        <p>Education and study guidance,<br>from Pune to new possibilities.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pune Centre</h4>
+        <p>Pune Nimbus School, 11 Mhalaspur,<br>
+        Mhalaspur Road, No. 41 Nimbus Road,<br>
+        Nimbus Area Bank, Bhoserwali, Pune,<br>
+        Maharashtra 411027</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Let's Connect</h4>
+        <p><strong>+91 73789 70701</strong></p>
+        <p style="font-size:12px; color:var(--text-muted);">Mon–Sat · 09:00 AM–08:00 PM</p>
+        <a href="https://wa.me/917378970701" target="_blank" rel="noopener">WhatsApp consultations →</a>
+        <a href="mailto:hello@nimbusworld.in" style="color:var(--text-muted); font-size:12px;">Email address to be confirmed</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© NimbusWorld 2026 · NimbusWorld Consultancy Private Limited</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function submitCtForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.ct-submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('ctSuccess').style.display = 'block';
+        btn.textContent = 'Request sent ✓';
+        btn.style.background = '#1a3050';
+      }, 900);
+    }
+  </script>
+</body>
+</html>

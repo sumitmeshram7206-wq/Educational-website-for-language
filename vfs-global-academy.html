@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NimbusWorld – VFS Global Academy Programmes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+
+    /* ===== BREADCRUMB ===== */
+    .vfs-breadcrumb {
+      padding: 10px 48px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font);
+      border-bottom: 1px solid var(--border-light);
+      background: var(--white);
+    }
+    .vfs-breadcrumb a { color: var(--text-muted); }
+    .vfs-breadcrumb a:hover { color: var(--text-dark); }
+    .vfs-breadcrumb span { margin: 0 5px; }
+
+    /* ===== HERO ===== */
+    .vfs-hero {
+      background: var(--navy);
+      padding: 60px 48px 56px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .vfs-hero-label {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      font-family: var(--font);
+      margin-bottom: 16px;
+    }
+
+    .vfs-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .vfs-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 440px;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .vfs-hero .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Programme index card */
+    .vfs-index-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .vfs-index-card .index-title {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--font);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .vfs-index-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .vfs-index-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .vfs-index-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold);
+      font-family: var(--font);
+      min-width: 28px;
+      line-height: 1;
+    }
+
+    .vfs-index-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      font-family: var(--font);
+      margin-bottom: 3px;
+    }
+
+    .vfs-index-info span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--font);
+    }
+
+    /* ===== CHOOSE YOUR PROGRAMME ===== */
+    .vfs-choose {
+      background: var(--navy-dark);
+      padding: 64px 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .vfs-choose-top {
+      margin-bottom: 10px;
+    }
+
+    .vfs-choose-top h2 {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: var(--font);
+      margin-bottom: 10px;
+    }
+
+    .vfs-choose-top .pathway-line {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      font-family: var(--font);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .vfs-choose-top .pathway-line span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .vfs-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .vfs-pricing-card {
+      background: var(--navy-dark);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .vfs-pricing-card:hover { background: #122236; }
+
+    .vfs-price-num {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--gold);
+      font-family: var(--font);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .vfs-price-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font);
+      line-height: 1.3;
+    }
+
+    .vfs-price-amount {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      font-family: var(--font);
+      margin-top: 6px;
+    }
+
+    .vfs-price-amount sup {
+      font-size: 14px;
+      vertical-align: super;
+    }
+
+    .vfs-price-amount .gst {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .vfs-price-cta {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      font-family: var(--font);
+      transition: gap 0.2s;
+      cursor: pointer;
+    }
+    .vfs-price-cta:hover { gap: 10px; }
+
+    .vfs-partners {
+      margin-top: 28px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--font);
+    }
+    .vfs-partners strong { color: var(--white); font-weight: 600; }
+
+    /* ===== INDUSTRY PROGRAMMES ===== */
+    .vfs-industry {
+      background: var(--white);
+      padding: 72px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .vfs-industry-top {
+      margin-bottom: 40px;
+    }
+
+    .vfs-industry-top .section-label { margin-bottom: 10px; }
+
+    .vfs-industry-top h2 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .vfs-industry-top p {
+      font-size: 14px;
+      color: var(--text-body);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .vfs-programmes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .vfs-prog-card {
+      background: var(--white);
+      border: 1px solid #d8e4f0;
+      border-radius: 8px;
+      padding: 28px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .vfs-prog-card:nth-child(1) { background: #eaf3ff; border-color: #c5d9f0; }
+    .vfs-prog-card:nth-child(2) { background: #fff9ec; border-color: #f0dfa0; }
+    .vfs-prog-card:nth-child(3) { background: #edfaf5; border-color: #b8e8d4; }
+
+    .vfs-prog-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.09); }
+
+    .vfs-prog-card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: var(--font);
+      margin-bottom: 14px;
+    }
+
+    .vfs-prog-card .prog-skills {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.65;
+      font-family: var(--font);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .vfs-prog-card .prog-roles {
+      font-size: 12.5px;
+      color: var(--text-body);
+      font-family: var(--font);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .vfs-prog-card .prog-roles strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .vfs-pub-gate {
+      margin-top: 28px;
+      background: #fff5f5;
+      border: 1px solid #f5c6c6;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-size: 12.5px;
+      color: #c0392b;
+      font-family: var(--font);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ===== CAREER PATHWAYS ===== */
+    .vfs-careers {
+      background: #f0f4f8;
+      padding: 72px 48px;
+      border-top: 1px solid #d8e2ed;
+    }
+
+    .vfs-careers-top {
+      margin-bottom: 40px;
+    }
+
+    .vfs-careers-top .section-label { color: var(--navy); margin-bottom: 10px; }
+
+    .vfs-careers-top h2 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .vfs-careers-top p {
+      font-size: 14px;
+      color: var(--text-body);
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    .vfs-careers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .vfs-career-card {
+      background: var(--white);
+      border: 1px solid #d8e2ed;
+      border-radius: 8px;
+      padding: 24px 26px;
+    }
+
+    .vfs-career-card:nth-child(1) { background: #eaf3ff; border-color: #c5d9f0; }
+    .vfs-career-card:nth-child(2) { background: #edfaf5; border-color: #b8e8d4; }
+    .vfs-career-card:nth-child(3) { background: #fff9ec; border-color: #f0dfa0; }
+    .vfs-career-card:nth-child(4) { background: #f5eeff; border-color: #d4b8f0; }
+
+    .vfs-career-card h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: var(--font);
+      margin-bottom: 12px;
+    }
+
+    .vfs-career-card .career-path {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.65;
+      font-family: var(--font);
+      font-weight: 300;
+    }
+
+    .vfs-career-card .career-path span {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .vfs-careers-disclaimer {
+      font-size: 12.5px;
+      color: #c0392b;
+      font-family: var(--font);
+      font-weight: 500;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* ===== PARENTS HUB ===== */
+    .vfs-parents {
+      background: var(--white);
+      padding: 72px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .vfs-parents-top {
+      margin-bottom: 40px;
+    }
+
+    .vfs-parents-top .section-label { margin-bottom: 10px; }
+
+    .vfs-parents-top h2 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .vfs-parents-top p {
+      font-size: 14px;
+      color: var(--text-body);
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    .vfs-parents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .vfs-parent-card {
+      border-radius: 8px;
+      padding: 24px 26px;
+      border: 1px solid #d8e2ed;
+    }
+
+    .vfs-parent-card:nth-child(1) { background: #eaf3ff; border-color: #c5d9f0; }
+    .vfs-parent-card:nth-child(2) { background: #edfaf5; border-color: #b8e8d4; }
+    .vfs-parent-card:nth-child(3) { background: #fff9ec; border-color: #f0dfa0; }
+    .vfs-parent-card:nth-child(4) { background: #f0f4f8; border-color: #d8e2ed; }
+
+    .vfs-parent-card h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: var(--font);
+      margin-bottom: 12px;
+    }
+
+    .vfs-parent-card p {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.65;
+      font-family: var(--font);
+      font-weight: 300;
+    }
+
+    .vfs-parents-faq {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--blue-accent);
+      font-family: var(--font);
+      font-style: italic;
+    }
+
+    /* ===== CTA ===== */
+    .vfs-cta {
+      background: var(--light-gray);
+      padding: 48px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .vfs-cta h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .vfs-cta p {
+      font-size: 13px;
+      color: var(--text-body);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .vfs-hero { grid-template-columns: 1fr; }
+      .vfs-pricing-grid { grid-template-columns: 1fr; }
+      .vfs-programmes-grid { grid-template-columns: 1fr; }
+      .vfs-careers-grid { grid-template-columns: 1fr; }
+      .vfs-parents-grid { grid-template-columns: 1fr; }
+      .vfs-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .vfs-hero, .vfs-choose, .vfs-industry, .vfs-careers, .vfs-parents, .vfs-cta { padding-left: 20px; padding-right: 20px; }
+      .vfs-hero h1 { font-size: 32px; }
+      .vfs-choose-top h2 { font-size: 28px; }
+      .vfs-breadcrumb { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+        <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+        <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+        <path d="M11 25 L11 8 L23 25 L23 8" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+        <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+      </svg>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name"><span class="part1">NIMBUS</span><span class="part2">WORLD</span></div>
+        <div class="nav-logo-sub">Education Consultancy</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vfs-global-academy.html" class="active">VFS Global Academy</a></li>
+      <li><a href="languages.html">Languages</a></li>
+      <li><a href="personality-career.html">Personality &amp; careers</a></li>
+      <li><a href="learning-parents.html">Learning &amp; parents</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a consulting →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vfs-global-academy.html" class="active">VFS Global Academy</a></li>
+      <li><a href="languages.html">Languages</a></li>
+      <li><a href="personality-career.html">Personality &amp; careers</a></li>
+      <li><a href="learning-parents.html">Learning &amp; parents</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-cta"><a href="contact.html">Book a consulting →</a></div>
+  </div>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="vfs-breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span>VFS Global Academy Programmes</span>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="vfs-hero">
+    <div>
+      <p class="vfs-hero-label">VFS Global Academy Programmes</p>
+      <h1>Industry programmes<br>built for the real world.</h1>
+      <p>Three focused pathways in Hospitality, Travel & Tourism and Luxury Retail. 3 months intensive training followed by a 3 months paid internship and placement support.</p>
+      <div class="hero-actions">
+        <a href="#programmes" class="btn btn-gold">Explore programmes</a>
+        <a href="contact.html" class="btn btn-outline-white">Book a consulting</a>
+      </div>
+    </div>
+
+    <!-- Index card -->
+    <div class="vfs-index-card">
+      <p class="index-title">Choose your programme</p>
+      <div class="vfs-index-item">
+        <div class="vfs-index-num">01</div>
+        <div class="vfs-index-info">
+          <h4>Hospitality Management</h4>
+          <span>₹49,900 + GST</span>
+        </div>
+      </div>
+      <div class="vfs-index-item">
+        <div class="vfs-index-num">02</div>
+        <div class="vfs-index-info">
+          <h4>Travel &amp; Tourism Management</h4>
+          <span>₹49,900 + GST</span>
+        </div>
+      </div>
+      <div class="vfs-index-item">
+        <div class="vfs-index-num">03</div>
+        <div class="vfs-index-info">
+          <h4>Luxury Retail Management</h4>
+          <span>₹74,900 + GST</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHOOSE YOUR PROGRAMME — PRICING ===== -->
+  <section class="vfs-choose">
+    <div class="vfs-choose-top">
+      <h2>Choose Your Programme</h2>
+      <p class="pathway-line">
+        <span>3 months</span> intensive training →
+        <span>3 months</span> paid internship* →
+        placement
+      </p>
+    </div>
+
+    <div class="vfs-pricing-grid">
+
+      <div class="vfs-pricing-card">
+        <div class="vfs-price-num">01</div>
+        <div class="vfs-price-title">Hospitality<br>Management</div>
+        <div class="vfs-price-amount">
+          <sup>₹</sup>49,900 <span class="gst">+ GST</span>
+        </div>
+        <a href="contact.html" class="vfs-price-cta">Enquire now →</a>
+      </div>
+
+      <div class="vfs-pricing-card">
+        <div class="vfs-price-num">02</div>
+        <div class="vfs-price-title">Travel &amp; Tourism<br>Management</div>
+        <div class="vfs-price-amount">
+          <sup>₹</sup>49,900 <span class="gst">+ GST</span>
+        </div>
+        <a href="contact.html" class="vfs-price-cta">Enquire now →</a>
+      </div>
+
+      <div class="vfs-pricing-card">
+        <div class="vfs-price-num">03</div>
+        <div class="vfs-price-title">Luxury Retail<br>Management</div>
+        <div class="vfs-price-amount">
+          <sup>₹</sup>74,900 <span class="gst">+ GST</span>
+        </div>
+        <a href="contact.html" class="vfs-price-cta">Enquire now →</a>
+      </div>
+
+    </div>
+
+    <p class="vfs-partners">
+      <strong>Placement partners:</strong> IHCL · Hilton · Leela Hotels · Sodexo · Encalm Lounge · Border Plus · Transformative Solutions
+    </p>
+  </section>
+
+  <!-- ===== INDUSTRY PROGRAMMES ===== -->
+  <section class="vfs-industry" id="programmes">
+    <div class="vfs-industry-top">
+      <p class="section-label">VFS Global Academy Programmes</p>
+      <h2>Industry programmes and<br>partnership rules</h2>
+      <p>Build a dedicated hub across three industry verticals — distinguish proposal claims from approved public facts before publication.</p>
+    </div>
+
+    <div class="vfs-programmes-grid">
+
+      <div class="vfs-prog-card">
+        <h3>Hospitality Management</h3>
+        <p class="prog-skills">Guest service · front office · F&B awareness</p>
+        <p class="prog-roles"><strong>Possible roles:</strong> guest relations, reservations, hospitality trainee.</p>
+      </div>
+
+      <div class="vfs-prog-card">
+        <h3>Travel &amp; Tourism Management</h3>
+        <p class="prog-skills">Destinations · itineraries · operations · ticketing awareness</p>
+        <p class="prog-roles"><strong>Possible roles:</strong> travel consultant, operations assistant.</p>
+      </div>
+
+      <div class="vfs-prog-card">
+        <h3>Luxury Retail Management</h3>
+        <p class="prog-skills">Premium customer experience · visual merchandising · retail CRM</p>
+        <p class="prog-roles"><strong>Possible roles:</strong> brand advisor, store associate.</p>
+      </div>
+
+    </div>
+
+
+  </section>
+
+  <!-- ===== CAREER PATHWAYS ===== -->
+  <section class="vfs-careers">
+    <div class="vfs-careers-top">
+      <p class="section-label">Careers / Progression</p>
+      <h2>Career pathways: roles are<br>examples, not promises</h2>
+      <p>Translate courses to skills, first roles, possible progression and sector context.</p>
+    </div>
+
+    <div class="vfs-careers-grid">
+
+      <div class="vfs-career-card">
+        <h3>Hospitality</h3>
+        <p class="career-path">
+          <span>Guest Service</span> → <span>Senior Associate</span> → <span>Supervisor</span> → <span>Operations</span>
+        </p>
+      </div>
+
+      <div class="vfs-career-card">
+        <h3>Tourism</h3>
+        <p class="career-path">
+          <span>Travel Executive</span> → <span>Consultant</span> → <span>Destination Specialist</span> → <span>Manager</span>
+        </p>
+      </div>
+
+      <div class="vfs-career-card">
+        <h3>Retail</h3>
+        <p class="career-path">
+          <span>Store Associate</span> → <span>Brand Advisor</span> → <span>Team Lead</span> → <span>Store Manager</span>
+        </p>
+      </div>
+
+      <div class="vfs-career-card">
+        <h3>Languages</h3>
+        <p class="career-path">
+          <span>Foundation</span> → <span>Applied Fluency</span> → <span>Language-enabled job / Higher Study</span>
+        </p>
+      </div>
+
+    </div>
+
+   
+  </section>
+
+  <!-- ===== PARENTS HUB ===== -->
+  <section class="vfs-parents">
+    <div class="vfs-parents-top">
+      <p class="section-label">Parents / Trust</p>
+      <h2>Parents' Hub: practical<br>course information</h2>
+      <p>Help students and parents compare available programmes and ask informed questions.</p>
+    </div>
+
+    <div class="vfs-parents-grid">
+
+      <div class="vfs-parent-card">
+        <h3>Cost Transparency</h3>
+        <p>Programme fee, duration, materials, schedule and refund terms when approved.</p>
+      </div>
+
+      <div class="vfs-parent-card">
+        <h3>Safety &amp; Support</h3>
+        <p>Centre contact, age-appropriate learning environment and enquiry channels.</p>
+      </div>
+
+      <div class="vfs-parent-card">
+        <h3>Course Quality</h3>
+        <p>Learning objectives, trainers, assessments, attendance and feedback cycles.</p>
+      </div>
+
+      <div class="vfs-parent-card">
+        <h3>Right Decision</h3>
+        <p>Starting level, options, course assessments and confirmed terms.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <div class="vfs-cta">
+    <div>
+      <h2>Your next chapter starts with a conversation.</h2>
+      <p>Tell us your goals. Our Pune team will help you find the right programme and starting point.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary" style="white-space:nowrap; padding:13px 28px; font-size:14px;">Book a consulting →</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="16" r="12" fill="none" stroke="#c9a84c" stroke-width="1.4"/>
+            <ellipse cx="18" cy="16" rx="6" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="6" y1="16" x2="30" y2="16" stroke="#c9a84c" stroke-width="0.9" opacity="0.7"/>
+            <line x1="8" y1="10" x2="28" y2="10" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <line x1="8" y1="22" x2="28" y2="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.5"/>
+            <path d="M11 25 L11 8 L23 25 L23 8" stroke="#0d1b2a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M7 8 Q18 2 29 8" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <circle cx="29" cy="8" r="1.8" fill="#c9a84c"/>
+            <path d="M6 29 Q18 25 30 29" stroke="#c9a84c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <line x1="18" y1="25" x2="18" y2="30" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name">
+              <span class="part1">NIMBUS</span><span class="part2">WORLD</span>
+            </div>
+            <div class="nav-logo-sub">Education Consultancy</div>
+          </div>
+        </div>
+        <div class="footer-tagline">Discover. Decide. Develop.</div>
+        <p>Education and study guidance,<br>from Pune to new possibilities.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pune Centre</h4>
+        <p>
+          Pune Nimbus School, 11 Mhalaspur,<br>
+          Mhalaspur Road, No. 41 Nimbus Road,<br>
+          Nimbus Area Bank, Bhoserwali, Pune,<br>
+          Maharashtra 411027
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Let's Connect</h4>
+        <p><strong>+91 73789 70701</strong></p>
+        <p style="font-size:12px; color:var(--text-muted);">Mon–Sat · 09:00 AM–08:00 PM</p>
+        <a href="contact.html">WhatsApp consultations →</a>
+        <a href="mailto:hello@nimbusworld.in" style="color:var(--text-muted); font-size:12px;">Email address to be confirmed</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© NimbusWorld 2026 · NimbusWorld Consultancy Private Limited</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

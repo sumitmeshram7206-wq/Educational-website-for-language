@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" width="220" height="100">
+
+  <!-- ======= ICON MARK (left side) ======= -->
+
+  <!-- Open book base -->
+  <ellipse cx="36" cy="74" rx="26" ry="5" fill="#c9a84c" opacity="0.35"/>
+  <path d="M10 72 Q23 65 36 68 Q49 65 62 72 L62 76 Q49 69 36 72 Q23 69 10 76 Z" fill="#c9a84c" opacity="0.6"/>
+  <!-- Book spine line -->
+  <line x1="36" y1="68" x2="36" y2="76" stroke="#c9a84c" stroke-width="1.5"/>
+
+  <!-- Globe circle behind N -->
+  <circle cx="36" cy="44" r="20" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.9"/>
+  <!-- Globe latitude lines -->
+  <ellipse cx="36" cy="44" rx="10" ry="20" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.6"/>
+  <ellipse cx="36" cy="44" rx="20" ry="8" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.6"/>
+  <!-- Globe continent-like fill hints -->
+  <circle cx="36" cy="44" r="20" fill="#c9a84c" opacity="0.08"/>
+
+  <!-- Large N letter -->
+  <path d="M18 65 L18 25 L52 65 L52 25" fill="none" stroke="#0d1b2a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Swoosh arc around globe -->
+  <path d="M14 30 Q36 8 60 28" fill="none" stroke="#0d1b2a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Star on swoosh -->
+  <polygon points="60,28 62,24 64,28 68,28 65,31 66,35 62,32 58,35 59,31 56,28" fill="#c9a84c" transform="scale(0.55) translate(50, 15)"/>
+  <!-- Simplified star -->
+  <circle cx="62" cy="27" r="2.5" fill="#c9a84c"/>
+  <line x1="62" y1="23" x2="62" y2="31" stroke="#c9a84c" stroke-width="1.5"/>
+  <line x1="58" y1="27" x2="66" y2="27" stroke="#c9a84c" stroke-width="1.5"/>
+
+  <!-- ======= TEXT (right side) ======= -->
+
+  <!-- NIMBUSWORLD -->
+  <text x="78" y="52" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2" fill="#0d1b2a">NIMBUS</text>
+  <text x="145" y="52" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2" fill="#c9a84c">WORLD</text>
+
+  <!-- EDUCATION CONSULTANCY -->
+  <text x="78" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="7.5" letter-spacing="2.5" fill="#0d1b2a" font-weight="400">EDUCATION CONSULTANCY</text>
+
+  <!-- PRIVATE LIMITED -->
+  <text x="78" y="76" font-family="'Segoe UI', Arial, sans-serif" font-size="6.5" letter-spacing="3" fill="#0d1b2a" font-weight="400" opacity="0.7">PRIVATE LIMITED</text>
+
+  <!-- Thin gold line under NIMBUSWORLD -->
+  <line x1="78" y1="56" x2="195" y2="56" stroke="#c9a84c" stroke-width="0.8" opacity="0.6"/>
+
+</svg>
