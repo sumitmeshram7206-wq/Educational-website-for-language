@@ -1484,7 +1484,7 @@ footer {
   /* Stats */
   .stats-strip { grid-template-columns: 1fr 1fr; padding: 16px; }
   .stat-num { font-size: 24px; }
-  .stat-label { font-size: 16px; line-height: 1.4; }
+  .stat-label { font-size: 20px; line-height: 1.4; }
 
   /* Sections */
   .section { padding: 36px 16px; }
