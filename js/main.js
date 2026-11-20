@@ -1,4 +1,4 @@
-// ========== FAQ TOGGLE ==========
+// FAQ toggle
 document.querySelectorAll('.faq-question').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
@@ -8,7 +8,7 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
-// ========== TABS ==========
+// tabs
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.tab;
@@ -21,7 +21,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// ========== HAMBURGER MENU ==========
+// menu
 (function() {
   const navbars = document.querySelectorAll('.navbar');
   navbars.forEach(navbar => {
@@ -112,7 +112,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   }
 });
 
-// ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+// smooth scrooll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -123,7 +123,83 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ========== ANIMATE ON SCROLL (simple fade-in) ==========
+//  Ssats slider
+const statsSlider = document.getElementById('statsSlider');
+const statBlocks = statsSlider ? [...statsSlider.querySelectorAll('.stat-block')] : [];
+
+if (statsSlider && statBlocks.length > 1) {
+  let statsIndex = 0;
+  let statsTimer;
+  let touchStartX = 0;
+
+
+  statBlocks.forEach(block => {
+    statsSlider.appendChild(block.cloneNode(true));
+  });
+
+  function getVisibleStats() {
+    return window.innerWidth <= 600 ? 1 : 4;
+  }
+
+  function showStats(index) {
+    const visibleStats = getVisibleStats();
+
+    statsIndex = index;
+    statsSlider.style.transition = 'transform 0.6s ease-in-out';
+
+    if (visibleStats === 1) {
+      statsSlider.style.transform = `translateX(-${statsIndex * 100}%)`;
+    } else {
+      statsSlider.style.transform = `translateX(-${statsIndex * 25}%)`;
+    }
+  }
+
+  function moveStats() {
+    showStats(statsIndex + 1);
+  }
+
+  function startStatsSlider() {
+    clearInterval(statsTimer);
+    statsTimer = setInterval(moveStats, 1500);
+  }
+
+  statsSlider.addEventListener('transitionend', () => {
+    if (statsIndex >= statBlocks.length) {
+      statsIndex = 0;
+      statsSlider.style.transition = 'none';
+      statsSlider.style.transform = 'translateX(0)';
+    }
+  });
+
+  statsSlider.addEventListener('mouseenter', () => clearInterval(statsTimer));
+  statsSlider.addEventListener('mouseleave', startStatsSlider);
+
+  statsSlider.addEventListener('touchstart', event => {
+    touchStartX = event.changedTouches[0].clientX;
+    clearInterval(statsTimer);
+  }, { passive: true });
+
+  statsSlider.addEventListener('touchend', event => {
+    const distance = event.changedTouches[0].clientX - touchStartX;
+
+    if (Math.abs(distance) > 40) {
+      showStats(distance < 0 ? statsIndex + 1 : Math.max(0, statsIndex - 1));
+    }
+
+    startStatsSlider();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    statsIndex = 0;
+    statsSlider.style.transition = 'none';
+    statsSlider.style.transform = 'translateX(0)';
+  });
+
+  showStats(0);
+  startStatsSlider();
+}
+
+// Animate on scroll (simple fade-in) 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
