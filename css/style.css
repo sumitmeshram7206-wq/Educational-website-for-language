@@ -382,7 +382,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* Mobile responsive */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .stat-block {
     flex: 0 0 100%;
     min-width: 100%;
@@ -1484,7 +1484,7 @@ footer {
   /* Stats */
   .stats-strip { grid-template-columns: 1fr 1fr; padding: 16px; }
   .stat-num { font-size: 24px; }
-  .stat-label { font-size: 11px; }
+  .stat-label { font-size: 16px; line-height: 1.4; }
 
   /* Sections */
   .section { padding: 36px 16px; }
